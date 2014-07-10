@@ -1,3 +1,30 @@
 {
-	
+  "name": "containerjs",
+  "description": "Container",
+  "version": "0.0.1",
+  "main": "src/container.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jasmine-node test/ --autotest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/skaterdav85/containerjs.git"
+  },
+  "keywords": [
+    "ioc",
+    "inversion",
+    "of",
+    "control",
+    "container",
+    "laravel",
+    "php"
+  ],
+  "author": "David Tang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/skaterdav85/containerjs/issues"
+  }
 }
