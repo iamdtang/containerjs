@@ -35,7 +35,11 @@ var foo = new Foo();
 container.instance('foo', foo);
 ```
 
-### Tests
+## Automatic Resolution
+
+
+
+## Tests
 
 Install jasmine-node
 

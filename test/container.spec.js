@@ -49,4 +49,40 @@ describe('Container', function() {
 		});
 	});
 
+	describe('automatic resolution', function() {
+		var FooBar;
+		var Baz;
+
+		beforeEach(function() {
+			Baz = function() {};
+			FooBar = function(baz) {
+				this.baz = baz;
+			};
+		});
+
+		it('should resolve classes automatically', function() {
+			var foobar = container.make(FooBar);
+
+			expect(foobar instanceof FooBar).toBeTruthy();
+			// expect(foobar.baz instanceof Baz).toBeTruthy();
+		});
+
+	});
+
+	describe('parseFunctionArgs()', function() {
+		it("should return an array of the names of a function's arguments", function() {
+			var Foo = function(bar, baz) {};
+
+			var args = container.parseFunctionArgs(Foo);
+			expect(args).toEqual(['bar', 'baz']);
+		});
+
+		it("should return an empty array if no function arguments", function() {
+			var Foo = function() {};
+
+			var args = container.parseFunctionArgs(Foo);
+			expect(args).toEqual(null);
+		});
+	});
+
 });
