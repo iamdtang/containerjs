@@ -5,34 +5,34 @@
 		this._singletons = {};
 	}
 
-	Container.prototype.bind = function(abstract, impl) {
-		this._bindings[abstract] = impl;
+	Container.prototype.bind = function(name, impl) {
+		this._bindings[name] = impl;
 	};
 
-	Container.prototype.make = function(abstract) {
-		if (this._bindings.hasOwnProperty(abstract)) {
-			return this._bindings[abstract]();
+	Container.prototype.make = function(name) {
+		if (this._bindings.hasOwnProperty(name)) {
+			return this._bindings[name]();
 		}
 
-		if (this._singletons.hasOwnProperty(abstract)) {
-			if (typeof this._singletons[abstract] === 'function') {
-				this._singletons[abstract] = this._singletons[abstract]();
+		if (this._singletons.hasOwnProperty(name)) {
+			if (typeof this._singletons[name] === 'function') {
+				this._singletons[name] = this._singletons[name]();
 			}
 			
-			return this._singletons[abstract];
+			return this._singletons[name];
 		}
 
-		if (typeof abstract === 'function') {
-			return new abstract();
+		if (typeof name === 'function') {
+			return new name();
 		}
 	};
 
-	Container.prototype.singleton = function(abstract, impl) {
-		this._singletons[abstract] = impl;
+	Container.prototype.singleton = function(name, impl) {
+		this._singletons[name] = impl;
 	};
 
-	Container.prototype.instance = function(abstract, impl) {
-		this._singletons[abstract] = impl;
+	Container.prototype.instance = function(name, impl) {
+		this._singletons[name] = impl;
 	};
 
 	Container.prototype.parseFunctionArgs = function(fn) {
