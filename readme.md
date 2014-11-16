@@ -1,7 +1,7 @@
 Container
 =========
 
-An IoC container class based on the container in Laravel (http://laravel.com/docs/ioc) but implemented in JavaScript for the browser and Node.
+A container constructor based on the container in Laravel (http://laravel.com/docs/ioc) but implemented in JavaScript for the browser and Node.
 
 ## Basic Usage
 
